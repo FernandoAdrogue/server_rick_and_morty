@@ -1,7 +1,7 @@
 require('dotenv').config()
 const { PORT , HOST } = process.env
-const {conn} = require("./DB_connection")
-const server = require("./app")
+const {conn} = require("./src/DB_connection")
+const server = require("./src/app")
 
 conn.sync({force:true /* alter:true */}).then(()=>{
   server.listen(PORT,()=>{
