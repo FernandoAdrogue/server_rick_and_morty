@@ -1,35 +1,11 @@
-//const express = require("express")
+require('dotenv').config()
+const { PORT , HOST } = process.env
 const {conn} = require("./DB_connection")
 const server = require("./app")
-const PORT = 3001
 
-//const morgan = require("morgan")
-//const router = require("./routes/index")
-
-// server.use(morgan("dev"))
-
-// server.use((req, res, next) => {
-//   res.header('Access-Control-Allow-Origin', '*');
-//   res.header('Access-Control-Allow-Credentials', 'true');
-//   res.header(
-//      'Access-Control-Allow-Headers',
-//      'Origin, X-Requested-With, Content-Type, Accept'
-//   );
-//   res.header(
-//      'Access-Control-Allow-Methods',
-//      'GET, POST, OPTIONS, PUT, DELETE'
-//   );
-//   next();
-// });
-
-// server.use(express.json())
-
-// server.use("/rickandmorty", router)
-
-//conn.sync({alter:true}).then(()=>{
-conn.sync({force:true}).then(()=>{
+conn.sync({force:true /* alter:true */}).then(()=>{
   server.listen(PORT,()=>{
-    console.log(`Server raised in http://localhost:${PORT}`);
+    console.log(`Server raised in ${HOST}:${PORT}`);
   })
 })
  
