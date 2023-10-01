@@ -6,16 +6,16 @@ const FavoriteModel = require("./models/Favorite")
 
 
 //Entorno Local
-const sequelize = new Sequelize(
-   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/ryckandmorty`,
-   { logging: false, native: false }
-);
+//const sequelize = new Sequelize(
+//   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/ryckandmorty`,
+//   { logging: false, native: false }
+//);
 
 //Deploy Vercel
-// const sequelize = new Sequelize(
-//    `postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}/${POSTGRES_DATABASE}`,
-//    { logging: false, native: false }
-// );
+const sequelize = new Sequelize(
+   `postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}/${POSTGRES_DATABASE}`,
+   { logging: false, native: false }
+);
 
 
 UserModel(sequelize)
